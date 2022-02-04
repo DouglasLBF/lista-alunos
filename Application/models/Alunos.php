@@ -1,9 +1,9 @@
 <?php
-
 namespace Application\models;
 
 use Application\core\Database;
 use PDO;
+header("Content-Type: text/html;  charset=ISO-8859-1", true);
 class Alunos
 {
   /** Poderiamos ter atributos aqui */
@@ -44,8 +44,7 @@ class Alunos
     and t.ed57_i_codigo = 3873
     order by
     to_ascii(ed47_v_nome)");
-    return $result->fetchAll(PDO::FETCH_ASSOC);
-    var_dump('teste');   
+    return $result->fetchAll(PDO::FETCH_ASSOC);      
   }
   
   /**
