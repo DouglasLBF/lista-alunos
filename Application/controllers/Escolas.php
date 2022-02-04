@@ -2,22 +2,17 @@
 
 use Application\core\Controller;
 
-class Alunos extends Controller
+class Escolas extends Controller
 {
   /**
   * chama a view index.php da seguinte forma /user/index   ou somente   /user
   * e retorna para a view todos os usuários no banco de dados.
   */
   public function index()
-  { 
-    $data=[]; 
-    $Alunos = $this->model('Alunos'); // é retornado o model Alunos()
-    $Escolas = $this->model('Escolas'); // é retornado o model Alunos()
-    
-    $dataa = $Alunos::findAll();
-    $datae = $Escolas::findAll();
-    $data = [$dataa,$datae];
-    $this->view('alunos/index', ['dados' => $data]);
+  {  
+    $Users = $this->model('Escolas'); // é retornado o model Alunos()
+    $data = $Users::findAll();
+    $this->view('alunos/index', ['escolas' => $data]);
   }
 
   /**
