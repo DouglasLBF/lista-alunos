@@ -11,8 +11,11 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/jquery-ui.min.css"/>
     <link rel="stylesheet" type="text/css" href="/assets/css/alunos.css"/>
     <link rel="stylesheet" type="text/css" href="/assets/css/yearpicker.css"/>
-  </head>
+  </head>  
   <body>
+  <ul class="nav justify-content-center">
+  <h1>Sistema escolar</h1>
+  </ul>
   <?php
       require '../Application/autoload.php';
 
@@ -22,6 +25,7 @@
       $app = new App();
 
     ?>    
+    
     <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/js/jquery-ui.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>

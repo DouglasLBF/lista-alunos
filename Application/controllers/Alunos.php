@@ -11,7 +11,7 @@ class Alunos extends Controller
   public function index()
   { 
     $data=[]; 
-
+    
     $Alunos = $this->model('Alunos'); // é retornado o model Alunos()
     $Escolas = $this->model('Escolas'); // é retornado o model Escolas()
     $Turmas = $this->model('Turmas');// é retornado o model Turmas()

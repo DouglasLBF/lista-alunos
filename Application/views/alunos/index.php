@@ -1,12 +1,11 @@
 <main>
   <div class="container">
     <div class="row">
-      <div class="col-8 offset-2" style="margin-top:100px">
-        <h2>Alunos</h2>        
+      <div class="col-8 offset-2" style="margin-top:100px">           
         <div>
           <h3>Filtro para alunos </h3>
           <form action="" method="post">          
-            <select name="escolas" id="escolas"  > 
+            <select name="escolas" id="escolas" onchange="filtro(this.value)" > 
               <option value="">Escolas</option>
               <?php foreach($data['dados'][1] as $escolas){ ?>                
                 <option value="<?= $escolas['ed18_i_codigo'] ?>"><?= $escolas['ed18_c_nome'] ?></option>            
