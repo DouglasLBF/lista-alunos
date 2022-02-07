@@ -2,6 +2,13 @@
 
 use Application\core\Controller;
 
+// echo '<pre>';
+// if ($_REQUEST['funcao']="buscarEscola" ){
+// echo $_REQUEST['dados'];
+// }
+// echo '</pre>';
+// die(23);
+
 class Alunos extends Controller
 {
   /**
@@ -11,7 +18,7 @@ class Alunos extends Controller
   public function index()
   { 
     $data=[]; 
-    
+
     $Alunos = $this->model('Alunos'); // é retornado o model Alunos()
     $Escolas = $this->model('Escolas'); // é retornado o model Escolas()
     $Turmas = $this->model('Turmas');// é retornado o model Turmas()
