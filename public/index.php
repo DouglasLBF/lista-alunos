@@ -8,6 +8,9 @@
     <title>Lista Alunos</title>
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/datatables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/jquery-ui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/alunos.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/yearpicker.css"/>
   </head>
   <body>
   <?php
@@ -15,17 +18,16 @@
 
       use Application\core\App;
       use Application\core\Controller;
-
+    
       $app = new App();
 
     ?>    
-    <script src="/assets/js/jquery.slim.min.js"></script>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery-ui.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/datatables.min.js"></script>    
-    <script type="text/javascript">
-      $(document).ready(function() {
-        $('#tabela').DataTable();
-      } );    
+    <script src="/assets/js/alunos.js"></script>          
+    <script src="/assets/js/yearpicker.js"></script>          
     </script>     
   </body>
 </html>

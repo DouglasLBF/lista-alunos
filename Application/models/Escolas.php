@@ -17,29 +17,26 @@ class Escolas
   public static function findAll()
   {
     $conn = new Database();
-    $result = $conn->executeQuery("select
-    distinct ed18_i_codigo,
+    $result = $conn->executeQuery("SELECT DISTINCT ed18_i_codigo,
     ed18_c_nome
-  from
-    alunocurso
-  inner join escola on
-    escola.ed18_i_codigo = alunocurso.ed56_i_escola
-  inner join aluno on
-    aluno.ed47_i_codigo = alunocurso.ed56_i_aluno
-  inner join calendario on
-    calendario.ed52_i_codigo = alunocurso.ed56_i_calendario
-  inner join base on
-    base.ed31_i_codigo = alunocurso.ed56_i_base
-  inner join cursoedu on
-    cursoedu.ed29_i_codigo = base.ed31_i_curso
-  left join alunopossib on
-    alunopossib.ed79_i_alunocurso = alunocurso.ed56_i_codigo
-  left join serie on
-    serie.ed11_i_codigo = alunopossib.ed79_i_serie
-  left join turno on
-    turno.ed15_i_codigo = alunopossib.ed79_i_turno
-  order by
-    ed18_c_nome");
+FROM   alunocurso
+INNER JOIN escola
+   ON escola.ed18_i_codigo = alunocurso.ed56_i_escola
+INNER JOIN aluno
+   ON aluno.ed47_i_codigo = alunocurso.ed56_i_aluno
+INNER JOIN calendario
+   ON calendario.ed52_i_codigo = alunocurso.ed56_i_calendario
+INNER JOIN base
+   ON base.ed31_i_codigo = alunocurso.ed56_i_base
+INNER JOIN cursoedu
+   ON cursoedu.ed29_i_codigo = base.ed31_i_curso
+LEFT JOIN alunopossib
+  ON alunopossib.ed79_i_alunocurso = alunocurso.ed56_i_codigo
+LEFT JOIN serie
+  ON serie.ed11_i_codigo = alunopossib.ed79_i_serie
+LEFT JOIN turno
+  ON turno.ed15_i_codigo = alunopossib.ed79_i_turno
+ORDER  BY ed18_c_nome ");
     return $result->fetchAll(PDO::FETCH_ASSOC);
   }
 

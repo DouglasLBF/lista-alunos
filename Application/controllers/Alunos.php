@@ -11,13 +11,18 @@ class Alunos extends Controller
   public function index()
   { 
     $data=[]; 
+
     $Alunos = $this->model('Alunos'); // é retornado o model Alunos()
-    $Escolas = $this->model('Escolas'); // é retornado o model Alunos()
-    
-    $dataa = $Alunos::findAll();
-    $datae = $Escolas::findAll();
-    $data = [$dataa,$datae];
-    $this->view('alunos/index', ['dados' => $data]);
+    $Escolas = $this->model('Escolas'); // é retornado o model Escolas()
+    $Turmas = $this->model('Turmas');// é retornado o model Turmas()
+
+    $data_tur = $Turmas::findAll();
+    $data_alu = $Alunos::findAll();
+    $data_esc = $Escolas::findAll();    
+
+    $data = [$data_alu,$data_esc,$data_tur];    
+   
+    $this->view('alunos/index', ['dados' => $data ]);
   }
 
   /**
