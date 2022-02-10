@@ -9,7 +9,7 @@ namespace Application\core;
 */
 class App
 {
-  protected $controller = 'Home';
+  protected $controller = 'Alunos';
   protected $method = 'index';
   protected $page404 = false;
   protected $params = [];

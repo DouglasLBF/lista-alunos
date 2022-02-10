@@ -3,7 +3,7 @@
 use Application\core\Controller;
 
 // echo '<pre>';
-// if ($_REQUEST['funcao']="buscarEscola" ){
+// if ($_REQUEST['funcao']="buscarTurma" ){
 // echo $_REQUEST['dados'];
 // }
 // echo '</pre>';
@@ -15,7 +15,7 @@ class Alunos extends Controller
   * chama a view index.php da seguinte forma /user/index   ou somente   /user
   * e retorna para a view todos os usuários no banco de dados.
   */
-  public function index()
+  public function index($id = null, $ano = null)
   { 
     $data=[]; 
 
@@ -23,9 +23,10 @@ class Alunos extends Controller
     $Escolas = $this->model('Escolas'); // é retornado o model Escolas()
     $Turmas = $this->model('Turmas');// é retornado o model Turmas()
 
-    $data_tur = $Turmas::findAll();
-    $data_alu = $Alunos::findAll();
     $data_esc = $Escolas::findAll();    
+    $data_tur = $Turmas::findAll();    
+    //$data_tur = $Turmas::findById($id,$ano);
+    $data_alu = $Alunos::findAll();
 
     $data = [$data_alu,$data_esc,$data_tur];    
    
@@ -48,6 +49,24 @@ class Alunos extends Controller
     } else {
       $this->pageNotFound();
     }
+  }
+
+  public function alunos_turma($id = null, $ano = null){
+    
+    // $data=[];
+
+    // $Alunos = $this->model('Alunos'); // retornado o model Alunos()
+    // $Escolas = $this->model('Escolas'); // retornado o model Escolas()
+    $Turmas = $this->model('Turmas');// retornado o model Turmas()
+
+
+    // $data_esc = $Escolas::findAll();    
+    $data_tur = $Turmas::findById($id,$ano);    
+    // $data_alu = $Alunos::findAll();
+
+    // $data = [$data_alu,$data_esc,$data_tur]; 
+
+    $this->view('alunos/index', ['dados_tur' => $data_tur ]);
   }
 
 

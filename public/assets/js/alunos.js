@@ -10,20 +10,27 @@ $(document).ready(function() {
    startYear:2019,
   // Ultimo ano a ser mostrado 
    endYear:$anoatual,   
-   onChange:function(value){
-     $(this).change();
-   }
+  
   }); 
 }); 
 
-function filtro(idescola){
-  let url = "/Application/controllers/Alunos";
-    let data = {funcao:"buscarEscola",dados:idescola} 
+// function buscarTurma(idescola,ano){
+//   let url = "/Application/controllers/Alunos/alunos_turma/{idescola}/{ano}";
+//     let data = {funcao:"buscarTurma",dados:[idescola,ano]} 
 
-    $.get(url,data, (response) => {       
+//     $.get(url,data, (response) => {       
           
-        // window.open(response, '_blank');
-    });
+//         // window.open(response, '_blank');
+//     });
+// }
+
+function buscarTurma(idescola,ano){
+  $.ajax({
+    type: "POST",
+    url: "/Application/controllers/Alunos"        
+  }).done(function(response){
+    alert(response);
+  });
 }
 
 

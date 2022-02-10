@@ -5,7 +5,7 @@
         <div>
           <h3>Filtro para alunos </h3>
           <form action="" method="post">          
-            <select name="escolas" id="escolas" onchange="filtro(this.value)" > 
+            <select name="escolas" id="escolas" onchange="buscarTurma(this.value)" > 
               <option value="">Escolas</option>
               <?php foreach($data['dados'][1] as $escolas){ ?>                
                 <option value="<?= $escolas['ed18_i_codigo'] ?>"><?= $escolas['ed18_c_nome'] ?></option>            
